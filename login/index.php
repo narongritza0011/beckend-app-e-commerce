@@ -5,8 +5,8 @@ if (isset($_POST) && !empty($_POST)) {
     // echo '</pre>';
     $user = $_POST['user'];
     $pass = sha1(md5($_POST['pass']));
-   // echo sha1(md5($pass));
-   // exit();
+    // echo sha1(md5($pass));
+    // exit();
     $sql = "SELECT * FROM tb_admin WHERE user = '$user' AND pass = '$pass'";
     $query = mysqli_query($connection, $sql);
     $row = mysqli_num_rows($query);
@@ -14,7 +14,7 @@ if (isset($_POST) && !empty($_POST)) {
         $result = mysqli_fetch_assoc($query);
         $_SESSION['user_login'] = $result['user'];
         $_SESSION['image_login'] = $result['image'];
-  
+
         //echo "เข้าสู่ระบบสำเร็จ";
         $alert = '<script type="text/javascript">';
         $alert .= 'alert("เข้าสู่ระบบสำเร็จ");';
@@ -37,15 +37,15 @@ if (isset($_POST) && !empty($_POST)) {
 
 <body class="app app-login p-0">
     <div class="row g-0 app-auth-wrapper">
-        <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
+        <div class="12 md-7 lg-6 text-center p-5">
             <div class="d-flex flex-column align-content-end">
                 <div class="app-auth-body mx-auto">
-                    <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="" src="upload/custom/favicon2.png" height="200px" width="200px" alt="logo"></a></div>
+                    <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="" src="upload/custom/fulllogo2.png" height="200px" width="200px" alt="logo"></a></div>
                     <h2 class="auth-heading text-center mb-5">ระบบจัดการสินค้า</h2>
                     <div class="auth-form-container text-start">
                         <form action="" method="post" class="auth-form login-form">
                             <div class="email mb-3">
-                                
+
                                 <input name="user" type="text" class="form-control signin-email" placeholder="ชื่อผู้ใช้" required="required">
                             </div>
                             <!--//form-group-->
@@ -95,23 +95,6 @@ if (isset($_POST) && !empty($_POST)) {
             </div>
             <!--//flex-column-->
         </div>
-        <!--//auth-main-col-->
-        <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
-            <div class="auth-background-holder">
-            </div>
-            <div class="auth-background-mask"></div>
-            <div class="auth-background-overlay p-3 p-lg-5">
-                <div class="d-flex flex-column align-content-end h-100">
-                    <div class="h-100"></div>
-                    <!--  <div class="overlay-content p-3 p-lg-4 rounded">
-                        <h5 class="mb-3 overlay-title">Explore Portal Admin Template</h5>
-                        <div>Portal is a free Bootstrap 5 admin dashboard template. You can download and view the template license <a href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">here</a>.</div>
-                    </div>-->
-                </div>
-            </div>
-            <!--//auth-background-overlay-->
-        </div>
-        <!--//auth-background-col-->
 
     </div>
     <!--//row-->

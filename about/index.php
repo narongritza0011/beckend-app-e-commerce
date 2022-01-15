@@ -1,7 +1,7 @@
 <?php
 
 
-$id = 0;
+$id = 1;
 $sql = "SELECT * FROM tb_about WHERE id = '$id'";
 $query = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($query);
@@ -15,17 +15,17 @@ if (isset($_POST) && !empty($_POST)) {
     // exit();
 
 
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $address = $_POST['address'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
+    $image_qr = $_POST['image_qr'];
+    $name_bank = $_POST['name_bank'];
+    $bank_number = $_POST['bank_number'];
+    $full_name = $_POST['full_name'];
+    $line_id = $_POST['line_id'];
 
-    $sql = "UPDATE tb_about SET name = '$name', description = '$description', address = '$address'
-        , email = '$email' , phone = '$phone' WHERE id = '$id'";
+    $sql = "UPDATE tb_about SET image_qr = '$image_qr', name_bank = '$name_bank', bank_number = '$bank_number'
+        , full_name = '$full_name' , line_id = '$line_id' WHERE id = '$id'";
     if (mysqli_query($connection, $sql)) {
         $alert = '<script type="text/javascript">';
-        $alert .= 'alert("อัปเดตข้อมูลเกี่ยวกับฉันสำเร็จ");';
+        $alert .= 'alert("อัปเดตข้อมูลช่องทางการชำระเงินฉันสำเร็จ");';
         $alert .= 'window.location.href = "?page=' . $_GET['page'] . '"';
         $alert .= '</script>';
         echo $alert;
@@ -40,10 +40,10 @@ if (isset($_POST) && !empty($_POST)) {
 ?>
 <div class="row justify-content-between">
     <div class="col-auto">
-        <h1 class="app-page-title mb-0">จัดการข้อมูลเกี่ยวกับฉัน</h1>
+        <h1 class="app-page-title mb-0">ข้อมูลช่องทางการชำระเงิน</h1>
     </div>
     <div class="col-auto ">
-        
+
     </div>
 </div>
 <hr class="mb-4">
@@ -58,30 +58,31 @@ if (isset($_POST) && !empty($_POST)) {
                 <form action="" method="POST" enctype="multipart/form-data">
 
                     <div class="mb-3 col-lg-6">
-                        <label class="form-label">ชื่อ บุคคล / บริษัท / องค์กร</label>
-                        <input type="text" value="<?= $result['name'] ?>" class="form-control" name="name" placeholder="ชื่อ บุคคล / บริษัท / องค์กร" required>
+                        <label class="form-label">รูป QR code สำหรับชำระเงิน</label><br>
+                        <img width="100" src="<?= $result['image_qr'] ?>" alt="" srcset=""><br>
+                        <input type="text" value="<?= $result['image_qr'] ?>" class="form-control" name="image_qr" placeholder="ใส่ url รูปภาพ" required>
                     </div>
 
 
                     <div class="mb-3 col-lg-6">
-                        <label class="form-label">รายละเอียด</label>
-                        <textarea class="form-control " style="height: 200px" name="description"><?= $result['description'] ?></textarea>
+                        <label class="form-label">ชื่อธนาคาร</label>
+                        <textarea class="form-control " style="height: 200px" name="name_bank"><?= $result['name_bank'] ?></textarea>
                     </div>
 
                     <div class="mb-3 col-lg-6">
-                        <label class="form-label">ที่อยู่</label>
-                        <textarea class="form-control " style="height: 80px" name="address" ><?= $result['address']?></textarea>
+                        <label class="form-label">เลขบัญชีธนาคาร</label>
+                        <textarea class="form-control " style="height: 80px" name="bank_number"><?= $result['bank_number'] ?></textarea>
                     </div>
 
 
                     <div class="mb-3 col-lg-6">
-                        <label class="form-label">อีเมล์</label>
-                        <input type="email" value="<?= $result['email'] ?>" class="form-control " name="email" required>
+                        <label class="form-label">ชื่อ-นามสกุล</label>
+                        <input type="text" value="<?= $result['full_name'] ?>" class="form-control " name="full_name" required>
                     </div>
 
                     <div class="mb-3 col-lg-6">
-                        <label class="form-label">เบอร์ติดต่อ</label>
-                        <input value="<?= $result['phone'] ?>" class="form-control " name="phone" required>
+                        <label class="form-label">ID ไลน์</label>
+                        <input value="<?= $result['line_id'] ?>" class="form-control " name="line_id" required>
                     </div>
 
                     <button type="submit" class="btn app-btn-primary">บันทึก</button>

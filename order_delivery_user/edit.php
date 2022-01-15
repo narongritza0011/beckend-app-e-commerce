@@ -2,7 +2,7 @@
 
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM orders WHERE id_orders = '$id'";
+    $sql = "SELECT * FROM orders_delivery WHERE id_orders = '$id'";
     $query = mysqli_query($connection, $sql);
     $result = mysqli_fetch_assoc($query);
     //print_r($result);
@@ -14,7 +14,7 @@ if (isset($_POST) && !empty($_POST)) {
 
     $status = $_POST['status'];
 
-    $sql = "UPDATE orders SET    status= '$status' WHERE id_orders = '$id'";
+    $sql = "UPDATE orders_delivery SET    status= '$status' WHERE id_orders = '$id'";
     if (mysqli_query($connection, $sql)) {
         //echo "เพิ่มข้อมูลสำเร็จ";
         $alert = '<script type="text/javascript">';

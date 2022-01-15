@@ -1,5 +1,5 @@
 <?php
-$connection = mysqli_connect("localhost","root","","backend_app_pet");
+$connection = mysqli_connect("localhost","root","","medhealth");
 
 //check connection
 if (mysqli_connect_errno()) {

@@ -69,6 +69,7 @@ $query1 = mysqli_query($connection, $sql1);
                         <input type="text" value="<?= $result['created_at'] ?>" class="form-control" disabled placeholder="" required>
                     </div>
                     <div class="mb-3 col-lg-6">
+                        <img  width="100" src="<?= $result['image'] ?>"  alt="" srcset=""><br>
                         <label class="form-label">รูปภาพ</label><br><small>(กรุณาใช้ image address ในการใส่รูปภาพ)</small>
                         <input type="text" value="<?= $result['image'] ?>" class="form-control mt-2" name="image" placeholder="" required>
                     </div>
@@ -106,8 +107,8 @@ $query1 = mysqli_query($connection, $sql1);
                         <select name="status" class="form-control" required>
                             <option value="" disabled>กำหนดการใช้งาน</option>
 
-                            <option value="1"> เปิดใช้งาน</option>
-                            <option value="0">ปิดใช้งาน</option>
+                            <option value="1" <?php echo ($result['status'] == 1) ? 'selected' : ''; ?>> เปิดใช้งาน</option>
+                            <option value="0" <?php echo ($result['status'] == 0) ? 'selected' : ''; ?>>ปิดใช้งาน</option>
 
                         </select>
                     </div>

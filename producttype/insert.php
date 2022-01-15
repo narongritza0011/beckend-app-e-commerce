@@ -18,7 +18,7 @@ if (isset($_POST) && !empty($_POST)) {
 
     $sql = "INSERT INTO category_product
               (category,image,status)
-             VALUES ('$category','$image','$status')";
+             VALUES ('$category','$image','1')";
     if (mysqli_query($connection, $sql)) {
         //echo "เพิ่มข้อมูลสำเร็จ";
         $alert = '<script type="text/javascript">';
@@ -78,13 +78,7 @@ $query1 = mysqli_query($connection, $sql1);
                     </div>
 
                     
-                     <div class="mb-3 col-lg-6">
-                        <label class="form-label">สถานะ</label>
-                        <select name="status" class="form-control" required>
-                            <option value="" disabled>กำหนดการใช้งาน</option>
-                            <option value="1"> เปิดใช้งาน</option>
-                            <option value="2" disabled>ปิดใช้งาน</option>
-                        </select>
+                     
             </div>
 
 

@@ -1,5 +1,7 @@
 <?php
-$sql = "SELECT * FROM product";
+$sql = "SELECT c.category,p.image,p.id_product, p.name,p.price,p.status
+FROM category_product as c
+INNER JOIN product as p ON p.id_category = c.id_category";
 $query = mysqli_query($connection, $sql);
 
 
@@ -26,7 +28,7 @@ $query = mysqli_query($connection, $sql);
                     <thead class="text-center ">
                         <tr>
                             <th scope="col">ลำดับ</th>
-                            
+                            <th scope="col">รูปภาพ</th>
                             <th scope="col">ประเภท</th>
                             <th scope="col">ชื่อสินค้า</th>
                             <th scope="col">ราคา</th>
@@ -40,14 +42,23 @@ $query = mysqli_query($connection, $sql);
                         foreach ($query as $data) : ?>
                             <tr>
                                 <td class="align-middle"><?= $i++ ?></td>
-                               
-                                <td class="align-middle"><?= $data['id_category'] ?></td>
+                                <td> <img class="align-middle" width="100" src="<?= $data['image'] ?>" alt="dwaedwq" srcset=""></td>
+
+
+                                <td class="align-middle"><?= $data['category'] ?></td>
                                 <td class="align-middle"><?= $data['name'] ?></td>
                                 <td class="align-middle"><?= number_format($data['price']) ?></td>
                                 <td class="align-middle"><?= ($data['status'] == 1 ? '<span class="badge bg-success text-white">เปิดใช้งาน</span>' : '<span class="badge bg-danger text-white">ปิดใช้งาน</span>') ?></td>
                                 <td class="align-middle">
-                                    <a href="?page=<?= $_GET['page'] ?>&function=update&id=<?= $data['id_product'] ?>" class="btn btn-sm btn-warning text-white">เเก้ไข</a>
-                                    <a onclick="return confirm('คุณต้องการลบ สินค้า : <?= $data['name'] ?> หรือไม่')" href="?page=<?= $_GET['page'] ?>&function=delete&id=<?= $data['id_product'] ?>"" class=" btn btn-sm btn-danger text-white">ลบ</a>
+
+                                    <a href="?page=<?= $_GET['page'] ?>&function=update&id=<?= $data['id_product'] ?>" class="btn btn-sm btn-warning text-white"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                        </svg> </a>
+                                    <a onclick="return confirm('คุณต้องการลบ สินค้า : <?= $data['name'] ?> หรือไม่')" href="?page=<?= $_GET['page'] ?>&function=delete&id=<?= $data['id_product'] ?>"" class=" btn btn-sm btn-danger text-white"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg> </a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

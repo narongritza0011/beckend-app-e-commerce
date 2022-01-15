@@ -14,12 +14,12 @@ if (isset($_POST) && !empty($_POST)) {
     $price = $_POST['price'];
     $image = $_POST['image'];
     $status = $_POST['status'];
-    $created_at = $_POST['created_at'];
+    //$created_at = $_POST['created_at'];
 
 
     $sql = "INSERT INTO product
-              (id_category,name,description,price,image,status,created_at)
-             VALUES ('$id_category','$name','$description','$price','$image','$status','$created_at')";
+              (id_category,name,description,price,image,status)
+             VALUES ('$id_category','$name','$description','$price','$image','1')";
     if (mysqli_query($connection, $sql)) {
         //echo "เพิ่มข้อมูลสำเร็จ";
         $alert = '<script type="text/javascript">';
@@ -63,10 +63,11 @@ $query1 = mysqli_query($connection, $sql1);
 
                 <form action="" method="POST" enctype="multipart/form-data">
 
-                    <div class="mb-3 col-lg-6">
+                    <!-- <div class="mb-3 col-lg-6">
                         <label for="birthdaytime">เลือกวัน-เวลา</label>
-                        <input type="datetime-local"  name="created_at">
-                    </div>
+                        <input type="datetime-local" name="created_at">
+                    </div> -->
+
                     <div class="mb-3 col-lg-6">
                         <label class="form-label">รูปภาพ</label><br><small>(กรุณาใช้ image address ในการใส่รูปภาพ)</small>
                         <input type="text" class="form-control mt-2" name="image" placeholder="" required>
@@ -98,26 +99,27 @@ $query1 = mysqli_query($connection, $sql1);
                         <label class="form-label">ราคา</label>
                         <input type="text" class="form-control" name="price" placeholder="" required>
                     </div>
-                    <div class="mb-3 col-lg-6">
 
-                        <label class="form-label">สถานะ</label>
+                    <!-- <div class="mb-3 col-lg-6">
+
+                        <!-- <label class="form-label">สถานะ</label>
                         <select name="status" class="form-control" required>
                             <option value="" disabled>กำหนดการใช้งาน</option>
 
                             <option value="1"> เปิดใช้งาน</option>
                             <option value="0" disabled>ปิดใช้งาน</option>
 
-                        </select>
-                    </div>
-
-
-                    <button type="submit" class="btn app-btn-primary">บันทึก</button>
-                </form>
+                        </select> -->
             </div>
-            <!--//app-card-body-->
 
+
+            <button type="submit" class="btn app-btn-primary">บันทึก</button>
+            </form>
         </div>
-        <!--//app-card-->
+        <!--//app-card-body-->
+
     </div>
+    <!--//app-card-->
+</div>
 </div>
 <!--//row-->

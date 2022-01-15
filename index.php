@@ -31,10 +31,26 @@
                     } elseif (isset($_GET['page']) &&  $_GET['page'] == 'order_user') {
                         if (isset($_GET['function']) && $_GET['function'] == 'view') {
                             include('order_user/view.php');
+                        } elseif (isset($_GET['function']) && $_GET['function'] == 'map') {
+                            include('order_user/map.php');
                         } elseif (isset($_GET['function']) && $_GET['function'] == 'update') {
                             include('order_user/edit.php');
+                        } elseif (isset($_GET['function']) && $_GET['function'] == 'delete') {
+                            include('order_user/delete.php');
                         } else {
                             include('order_user/index.php');
+                        }
+                    } elseif (isset($_GET['page']) &&  $_GET['page'] == 'order_delivery_user') {
+                        if (isset($_GET['function']) && $_GET['function'] == 'view') {
+                            include('order_delivery_user/view.php');
+                        } elseif (isset($_GET['function']) && $_GET['function'] == 'map') {
+                            include('order_delivery_user/map.php');
+                        } elseif (isset($_GET['function']) && $_GET['function'] == 'update') {
+                            include('order_delivery_user/edit.php');
+                        } elseif (isset($_GET['function']) && $_GET['function'] == 'delete') {
+                            include('order_delivery_user/delete.php');
+                        } else {
+                            include('order_delivery_user/index.php');
                         }
                     } elseif (isset($_GET['page']) &&  $_GET['page'] == 'product') {
                         if (isset($_GET['function']) && $_GET['function'] == 'add') {
@@ -56,6 +72,14 @@
                         } else {
                             include('producttype/index.php');
                         }
+                    } elseif (isset($_GET['page']) &&  $_GET['page'] == 'tracking') {
+                        if (isset($_GET['function']) && $_GET['function'] == 'update') {
+                            include('tracking/edit.php');
+                        } elseif (isset($_GET['function']) && $_GET['function'] == 'delete') {
+                            include('tracking/delete.php');
+                        } else {
+                            include('tracking/index.php');
+                        }
                     } elseif (isset($_GET['page']) &&  $_GET['page'] == 'admin') {
                         if (isset($_GET['function']) && $_GET['function'] == 'add') {
                             include('admin/admin/insert.php');
@@ -68,6 +92,18 @@
                         } else {
                             include('admin/admin/index.php');
                         }
+                    } elseif (isset($_GET['page']) &&  $_GET['page'] == 'history_orders') {
+
+                        if (isset($_GET['function']) && $_GET['function'] == 'view') {
+                            include('history_orders/view.php');
+                        } else
+                            include('history_orders/index.php');
+                    } elseif (isset($_GET['page']) &&  $_GET['page'] == 'history_orders_delivery') {
+
+                        if (isset($_GET['function']) && $_GET['function'] == 'view') {
+                            include('history_orders_delivery/view.php');
+                        } else
+                            include('history_orders_delivery/index.php');
                     } elseif (isset($_GET['page']) &&  $_GET['page'] == 'profile') {
                         include('profile/index.php');
                     } elseif (isset($_GET['page']) &&  $_GET['page'] == 'logout') {

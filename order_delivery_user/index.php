@@ -1,7 +1,7 @@
 <?php
 
 $sql = "SELECT o.id_orders,o.invoice,u.name,u.address,o.order_at,o.status 
-FROM  orders  as o 
+FROM  orders_delivery  as o 
 INNER JOIN user as u
  ON  o.id_user  = u.id_user 
  WHERE o.status in (1,2)
@@ -17,7 +17,7 @@ $query = mysqli_query($connection, $sql);
 ?>
 <div class="row justify-content-between">
     <div class="col-auto">
-        <h1 class="app-page-title mb-0">รายการสั่งซื้อของลูกค้า</h1>
+        <h1 class="app-page-title mb-0">รายการสั่งซื้อ Delivery ของลูกค้า</h1>
     </div>
     <div class="col-auto">
 
@@ -37,7 +37,7 @@ $query = mysqli_query($connection, $sql);
 
                             <th scope="col">หมายเลขคำสั่งซื้อ</th>
                             <th scope="col">ชื่อผู้ใช้</th>
-                            <th scope="col">วัน-เวลา</th>
+                            <th scope="col">วัน-เวลาที่สั่งซื้อ</th>
                             <th scope="col">สถานะ</th>
                             <th scope="col">เมนู</th>
                         </tr>

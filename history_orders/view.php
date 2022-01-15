@@ -37,7 +37,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 </div>
 <div class="row justify-content-between">
     <div class="col-auto">
-        <h1 class="app-page-title mb-0">รายละเอียดคำสั่งซื้อ</h1>
+        <h1 class="app-page-title mb-0">ดูรายละเอียด</h1>
     </div>
     <div class="col-auto">
 
@@ -61,11 +61,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     <hr>
 
                     <span class="align-middle">
-                         <?= $data['name'] ?>
+                        <?= $data['name'] ?>
                     </span><br>
                     <span class="align-middle">
-                        จำนวน <?= $data['quantity'] ?> ชิ้น
-                    </span><br>
+                       จำนวน <?= $data['quantity'] ?> ชิ้น <br>
+                    </span>
                     <span class="align-middle">
                         ราคา <?= $data['price'] ?> บาท
                     </span><br>
@@ -76,7 +76,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
                 <h6 class="text-end">ราคารวม</h6>
                 <div class="d-flex justify-content-end">
-                     <span class="align-middle  ">
+                    <span class="align-middle">
                         <?= $result_detail['total'] ?> บาท
                     </span>
                 </div>
@@ -91,7 +91,3 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     </div>
 </div>
 <!--//row-->
-
-
-
-

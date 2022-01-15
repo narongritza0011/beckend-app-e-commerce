@@ -1,6 +1,7 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_GmjGEbUlG30GpiSrhVn9eaP5buZE2wY
+&callback=initMap" async></script>
 
-
-
+<!-- //AIzaSyC3I4EnpJKFV_LHMXwiRoCMIUWGiDAaxR4 -->
 <!-- FontAwesome JS-->
 <script defer src="admin/assets/assets/plugins/fontawesome/js/all.min.js"></script>
 
@@ -17,13 +18,16 @@
 
 
 <!-- jQuery  -->
-<script src="https://code.jquery.com/jquery-3.6.0.js"  ></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 
 <!-- Datatables js -->
-<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"  ></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.all.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

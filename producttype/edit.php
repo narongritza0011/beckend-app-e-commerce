@@ -67,8 +67,8 @@ if (isset($_POST) && !empty($_POST)) {
                         <select name="status" class="form-control" required>
                             <option value="" disabled>กำหนดการใช้งาน</option>
 
-                            <option value="1"> เปิดใช้งาน</option>
-                            <option value="2">ปิดใช้งาน</option>
+                            <option value="1" <?php echo ($result['status'] == 'on') ? 'selected' : ''; ?>> เปิดใช้งาน</option>
+                            <option value="2" <?php echo ($result['status'] == 'off') ? 'selected' : ''; ?>>ปิดใช้งาน</option>
 
                         </select>
                     </div>
